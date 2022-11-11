@@ -96,10 +96,6 @@ p {
   width: 20%;
 }
 
-.bottomContainer {
-  margin-top: 200px;
-}
-
 .sortContainer {
   gap: 0.5rem;
   padding: 1.5em;
@@ -110,7 +106,6 @@ p {
   justify-content: center;
   box-shadow: 20px 38px 34px -26px hsla(0deg, 0%, 0%, 0.2);
   border-radius: 255px 15px 225px 15px/15px 225px 15px 255px;
-  min-height: 75px;
 }
 .sortContainer:hover {
   box-shadow: 2px 8px 4px -6px hsla(0deg, 0%, 0%, 0.3);

@@ -9,24 +9,20 @@ export default function Button({ items, setItems, word, initialItems }) {
     
     const [isVisible, setIsVisible] = useState(false);
     const [modalToggle, setModalToggle] = useState(false)
+   
 
-    const checkAnswer = () => {
+
+
+    const checkAnswer = (event) => {
         const checkLetter = Object.values(items).map((item, idx) => item.letter === word[idx])
-
-        // setItems(current => current.map((item, idx) => ({ ...item, color: (checkLetter[idx] === true ? "#2f9e44" : "#d9480f") })))
-        setItems((prev) => {
-            return {
-                ...prev, 
-                root: prev.root.map((item, idx) => ({ ...item, color: (checkLetter[idx] === true ? "#2f9e44" : "#d9480f") }))
-            }
-        })
-       
+        setItems(current => current.map((item, idx) => ({ ...item, color: (checkLetter[idx] === true ? "#2f9e44" : "#d9480f") })))
+        console.log(items)
         if (checkLetter.every(item => item === true)) {
             setIsVisible(true)
 
             setTimeout(() => {
                 initiateModal()
-            }, 3000) 
+            }, 3000)
         }
     }
     const initiateModal = () => {
@@ -46,14 +42,17 @@ export default function Button({ items, setItems, word, initialItems }) {
             </>
         )
     }
-
+    // let sortedWord = Object.values(items).map((item) => item.letter).join('')
+    //     if (sortedWord === word) {
+    //         console.log('yes')
+    //     }
     return (
-        <> 
+        <>
             <div className="submitReset">
-                <button onClick={() => checkAnswer()}>submit</button>
+                <button onClick={(event) => checkAnswer(event)}>submit</button>
                 <button onClick={() => resetSort()}>reset</button>
             </div>
-             
+            
             <Modal open={modalToggle}
                 onClick={() => setModalToggle(false)}
           
